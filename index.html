@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cash Dog | Alinhamento Técnico</title>
+  <style>
+    :root {
+      --primary: #00ff88;
+      --secondary: #60a5fa;
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --border: #334155;
+    }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 40px 20px;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .container {
+      max-width: 850px;
+      margin: auto;
+      background: var(--card);
+      padding: 40px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .header { text-align: center; margin-bottom: 40px; }
+    h1 {
+      font-size: 28px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+    .header p { color: var(--muted); font-size: 14px; }
+    h2 {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--secondary);
+      margin-top: 35px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2::after { content: ""; height: 1px; flex: 1; background: var(--border); }
+    .helper { font-size: 13px; color: var(--muted); margin-bottom: 15px; display: block; font-style: italic; }
+    label { display: block; margin-top: 20px; font-size: 14px; font-weight: 500; }
+    input, textarea, select {
+      width: 100%; padding: 14px; margin-top: 8px; border-radius: 12px;
+      border: 1px solid var(--border); background: #0f172a; color: white;
+      box-sizing: border-box; transition: 0.2s;
+    }
+    .checkbox-group {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px; margin-top: 10px;
+    }
+    .checkbox-item {
+      background: rgba(15, 23, 42, 0.5); border: 1px solid var(--border);
+      padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 12px;
+      cursor: pointer;
+    }
+    .checkbox-item input { width: auto; margin: 0; }
+    .btn-whats {
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: white; border: none; padding: 20px; width: 100%; border-radius: 16px;
+      font-size: 18px; font-weight: 700; cursor: pointer; margin-top: 40px;
+    }
+    .highlight-card {
+      background: rgba(96, 165, 250, 0.05); border: 1px dashed var(--secondary);
+      padding: 20px; border-radius: 16px; margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Cash Dog: Definição de Projeto</h1>
+    <p>Sr., responda abaixo para oficializarmos as regras da plataforma e iniciarmos a Fase 1.</p>
+  </div>
+
+  <h2>1) Objetivo do Projeto</h2>
+  <span class="helper">Isso ajuda a definir como o site deve se comunicar com o público.</span>
+  <div class="checkbox-group">
+    <label class="checkbox-item"><input type="checkbox" class="objetivo" value="Renda/Rede"> Gerar renda e rede de associados</label>
+    <label class="checkbox-item"><input type="checkbox" class="objetivo" value="Ajuda Animal"> Ajudar projeto animal (Instituto Família Pet)</label>
+    <label class="checkbox-item"><input type="checkbox" class="objetivo" value="Vendas Loja"> Vendas na loja virtual</label>
+  </div>
+
+  <h2>2) O que faremos na Fase 1?</h2>
+  <span class="helper">A Fase 1 custa R$ 4.000 e foca no planejamento e desenho de tudo. O que o senhor quer priorizar no desenho?</span>
+  <div class="checkbox-group">
+    <label class="checkbox-item"><input type="checkbox" class="prioridade" value="Site Institucional"> Site Institucional (Página Inicial)</label>
+    <label class="checkbox-item"><input type="checkbox" class="prioridade" value="Planejamento/Cadastro"> Estrutura de Cadastro e Árvore da Rede</label>
+  </div>
+
+  <h2>3) Regras da Rede (Matriz)</h2>
+  <span class="helper">Confirmando o sistema de indicação para não haver erro no cálculo de níveis.</span>
+  <div class="checkbox-group" style="grid-template-columns: 1fr 1fr 1fr;">
+    <div><label>Matriz 3x5?</label><select id="matriz"><option>Sim</option><option>Não</option></select></div>
+    <div><label>Limite 3 Diretos?</label><select id="limite"><option>Sim</option><option>Não</option></select></div>
+    <div><label>Ganhos 5 Níveis?</label><select id="niveis"><option>Sim</option><option>Não</option></select></div>
+  </div>
+
+  <div class="highlight-card">
+    <label>Regra de Derramamento (Spillover):</label>
+    <span class="helper">Se o senhor convidar a 4ª pessoa, ela deve cair automaticamente para ajudar quem está abaixo?</span>
+    <select id="derramamento">
+      <option value="Sim, automático">Sim, preencher buracos automaticamente</option>
+      <option value="Não, manual">Não, eu decido onde cada um fica</option>
+    </select>
+  </div>
+
+  <h2>4) Moedas e Saques</h2>
+  <span class="helper">Definindo como o dinheiro será dividido e como o associado recebe.</span>
+  <label>Confirma as 4 moedas (Cash, Cash Dog, Social Pet, Humanística)?</label>
+  <select id="conf_moedas"><option>Sim</option><option>Não</option></select>
+
+  <label>O saldo será dividido 50% para Saque e 50% para usar na Loja?</label>
+  <select id="divisao"><option>Sim</option><option>Não</option></select>
+
+  <label>Confirma taxa de 10% por saque para a plataforma?</label>
+  <select id="taxa"><option>Sim</option><option>Não</option></select>
+
+  <h2>5) Loja Virtual e Segurança</h2>
+  <span class="helper">Como o sistema deve se comportar com produtos e upgrades.</span>
+  <label>Produtos iniciais (Kits Pão de Queijo ou outros)?</label>
+  <textarea id="produtos" placeholder="Descreva os produtos que geram o cashback..."></textarea>
+
+  <label>Upgrade de Categoria (Prata, Ouro, etc):</label>
+  <span class="helper">O senhor vai cadastrar os códigos de adoção animal para validar os associados?</span>
+  <textarea id="valida_codigo" placeholder="Como será a validação dos códigos de adoção?"></textarea>
+
+  <h2>6) Acordo de Início</h2>
+  <label>Confirma o início pela Fase 1 (Planejamento) no valor de R$ 4.000?</label>
+  <input type="text" id="conf_valor" value="Sim, de acordo.">
+
+  <button class="btn-whats" onclick="enviarWhatsApp()">FINALIZAR E ENVIAR PARA GABRIEL</button>
+</div>
+
+<script>
+function enviarWhatsApp() {
+  const f = (id) => document.getElementById(id).value;
+  const chk = (cls) => Array.from(document.querySelectorAll(`.${cls}:checked`)).map(e => e.value).join(", ") || "Nenhum";
+
+  let msg = `*RESPOSTAS PROJETO CASH DOG*\n\n`;
+  msg += `*Objetivos:* ${chk('objetivo')}\n`;
+  msg += `*Prioridades Fase 1:* ${chk('prioridade')}\n`;
+  msg += `*Rede:* Matriz 3x5, Derramamento: ${f('derramamento')}\n`;
+  msg += `*Financeiro:* Divisão 50/50, Taxa 10%, 4 Moedas (${f('conf_moedas')})\n`;
+  msg += `*Produtos:* ${f('produtos')}\n`;
+  msg += `*Validação Social:* ${f('valida_codigo')}\n`;
+  msg += `*Acordo Fase 1 (R$ 4k):* ${f('conf_valor')}`;
+
+  const fone = "5541998731154";
+  window.open(`https://api.whatsapp.com/send?phone=${fone}&text=${encodeURIComponent(msg)}`, '_blank');
+}
+</script>
+</body>
+</html>
