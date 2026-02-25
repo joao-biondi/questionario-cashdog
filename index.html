@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cash Dog | Alinhamento Técnico</title>
+  <title>Cash Dog | Alinhamento Técnico Final</title>
   <style>
     :root {
       --primary: #00ff88;
@@ -39,7 +39,6 @@
       -webkit-text-fill-color: transparent;
       margin-bottom: 10px;
     }
-    .header p { color: var(--muted); font-size: 14px; }
     h2 {
       font-size: 16px;
       text-transform: uppercase;
@@ -74,77 +73,62 @@
       color: white; border: none; padding: 20px; width: 100%; border-radius: 16px;
       font-size: 18px; font-weight: 700; cursor: pointer; margin-top: 40px;
     }
-    .highlight-card {
-      background: rgba(96, 165, 250, 0.05); border: 1px dashed var(--secondary);
-      padding: 20px; border-radius: 16px; margin-top: 20px;
-    }
   </style>
 </head>
 <body>
 
 <div class="container">
   <div class="header">
-    <h1>Cash Dog: Definição de Projeto</h1>
-    <p>Sr., responda abaixo para oficializarmos as regras da plataforma e iniciarmos a Fase 1.</p>
+    <h1>Cash Dog: Acordo Técnico</h1>
+    <p>Sr., revise as definições finais para oficializarmos o início da Fase 1.</p>
   </div>
 
-  <h2>1) Objetivo do Projeto</h2>
-  <span class="helper">Isso ajuda a definir como o site deve se comunicar com o público.</span>
+  <h2>1) Estrutura e Nomenclatura</h2>
+  <span class="helper">O senhor solicitou autonomia para gerenciar os nomes das categorias.</span>
+  <label>Deseja um campo no painel Admin para renomear as categorias (ex: Bronze para Esmeralda)?</label>
+  <select id="autonomia_nomes">
+    <option value="Sim, desejo autonomia">Sim, quero poder mudar os nomes sozinho</option>
+    <option value="Não, pode deixar fixo">Não, os nomes do PDF são definitivos</option>
+  </select>
+
+  <h2>2) Moedas e Regras de Cashback</h2>
+  <span class="helper">Definindo a lógica da moeda "Sycous" e bônus de ativação.</span>
+  <label>Nome da moeda virtual (CashPet):</label>
+  <input type="text" id="nome_moeda" value="Sycous">
+  
+  <label>Confirma que compras feitas com "Sycous" NÃO geram bônus para a rede?</label>
+  <select id="regra_sycous">
+    <option value="Confirmado">Confirmado: Apenas Kit de Ativação gera cashback</option>
+    <option value="Ajustar">Não, quero que tudo gere bônus</option>
+  </select>
+
+  <h2>3) Fases e Manutenção Mensal</h2>
+  <span class="helper">Diferenciando suporte técnico de novos desenvolvimentos.</span>
+  <label>Entende que a Fase 1 (R$ 4k) entrega o projeto funcional apenas na Matriz Bronze?</label>
+  <select id="conf_fase1_bronze"><option>Sim, ciente</option><option>Não</option></select>
+
+  <label>O que o senhor espera do contrato de manutenção mensal?</label>
   <div class="checkbox-group">
-    <label class="checkbox-item"><input type="checkbox" class="objetivo" value="Renda/Rede"> Gerar renda e rede de associados</label>
-    <label class="checkbox-item"><input type="checkbox" class="objetivo" value="Ajuda Animal"> Ajudar projeto animal (Instituto Família Pet)</label>
-    <label class="checkbox-item"><input type="checkbox" class="objetivo" value="Vendas Loja"> Vendas na loja virtual</label>
+    <label class="checkbox-item"><input type="checkbox" class="manutencao" value="Correcao Bugs"> Correção de falhas e erros</label>
+    <label class="checkbox-item"><input type="checkbox" class="manutencao" value="Ajuste de Bonus"> Alteração de valores de bônus</label>
+    <label class="checkbox-item"><input type="checkbox" class="manutencao" value="Suporte Loja"> Suporte na Loja Virtual</label>
   </div>
 
-  <h2>2) O que faremos na Fase 1?</h2>
-  <span class="helper">A Fase 1 custa R$ 4.000 e foca no planejamento e desenho de tudo. O que o senhor quer priorizar no desenho?</span>
-  <div class="checkbox-group">
-    <label class="checkbox-item"><input type="checkbox" class="prioridade" value="Site Institucional"> Site Institucional (Página Inicial)</label>
-    <label class="checkbox-item"><input type="checkbox" class="prioridade" value="Planejamento/Cadastro"> Estrutura de Cadastro e Árvore da Rede</label>
-  </div>
+  <h2>4) Regras de Rede e Segurança</h2>
+  <label>Regra de Derramamento (Spillover):</label>
+  <select id="derramamento">
+    <option value="Sim, automático">Sim, preenchimento automático de "buracos"</option>
+    <option value="Manual">Não, posicionamento manual</option>
+  </select>
 
-  <h2>3) Regras da Rede (Matriz)</h2>
-  <span class="helper">Confirmando o sistema de indicação para não haver erro no cálculo de níveis.</span>
-  <div class="checkbox-group" style="grid-template-columns: 1fr 1fr 1fr;">
-    <div><label>Matriz 3x5?</label><select id="matriz"><option>Sim</option><option>Não</option></select></div>
-    <div><label>Limite 3 Diretos?</label><select id="limite"><option>Sim</option><option>Não</option></select></div>
-    <div><label>Ganhos 5 Níveis?</label><select id="niveis"><option>Sim</option><option>Não</option></select></div>
-  </div>
+  <label>Validação de Adoção (Upgrade):</label>
+  <textarea id="valida_codigo" placeholder="Sr., como o senhor fará para conferir se o código do contrato de adoção é válido?"></textarea>
 
-  <div class="highlight-card">
-    <label>Regra de Derramamento (Spillover):</label>
-    <span class="helper">Se o senhor convidar a 4ª pessoa, ela deve cair automaticamente para ajudar quem está abaixo?</span>
-    <select id="derramamento">
-      <option value="Sim, automático">Sim, preencher buracos automaticamente</option>
-      <option value="Não, manual">Não, eu decido onde cada um fica</option>
-    </select>
-  </div>
+  <h2>5) Aceite Final da Fase 1</h2>
+  <label>Confirma o início imediato pela Fase 1 no valor de R$ 4.000?</label>
+  <input type="text" id="conf_valor" value="Sim, de acordo com o planejado.">
 
-  <h2>4) Moedas e Saques</h2>
-  <span class="helper">Definindo como o dinheiro será dividido e como o associado recebe.</span>
-  <label>Confirma as 4 moedas (Cash, Cash Dog, Social Pet, Humanística)?</label>
-  <select id="conf_moedas"><option>Sim</option><option>Não</option></select>
-
-  <label>O saldo será dividido 50% para Saque e 50% para usar na Loja?</label>
-  <select id="divisao"><option>Sim</option><option>Não</option></select>
-
-  <label>Confirma taxa de 10% por saque para a plataforma?</label>
-  <select id="taxa"><option>Sim</option><option>Não</option></select>
-
-  <h2>5) Loja Virtual e Segurança</h2>
-  <span class="helper">Como o sistema deve se comportar com produtos e upgrades.</span>
-  <label>Produtos iniciais (Kits Pão de Queijo ou outros)?</label>
-  <textarea id="produtos" placeholder="Descreva os produtos que geram o cashback..."></textarea>
-
-  <label>Upgrade de Categoria (Prata, Ouro, etc):</label>
-  <span class="helper">O senhor vai cadastrar os códigos de adoção animal para validar os associados?</span>
-  <textarea id="valida_codigo" placeholder="Como será a validação dos códigos de adoção?"></textarea>
-
-  <h2>6) Acordo de Início</h2>
-  <label>Confirma o início pela Fase 1 (Planejamento) no valor de R$ 4.000?</label>
-  <input type="text" id="conf_valor" value="Sim, de acordo.">
-
-  <button class="btn-whats" onclick="enviarWhatsApp()">FINALIZAR E ENVIAR PARA JOÃO</button>
+  <button class="btn-whats" onclick="enviarWhatsApp()">ENVIAR DEFINIÇÕES PARA O JOÃO</button>
 </div>
 
 <script>
@@ -152,12 +136,12 @@ function enviarWhatsApp() {
   const f = (id) => document.getElementById(id).value;
   const chk = (cls) => Array.from(document.querySelectorAll(`.${cls}:checked`)).map(e => e.value).join(", ") || "Nenhum";
 
-  let msg = `*RESPOSTAS PROJETO CASH DOG*\n\n`;
-  msg += `*Objetivos:* ${chk('objetivo')}\n`;
-  msg += `*Prioridades Fase 1:* ${chk('prioridade')}\n`;
-  msg += `*Rede:* Matriz 3x5, Derramamento: ${f('derramamento')}\n`;
-  msg += `*Financeiro:* Divisão 50/50, Taxa 10%, 4 Moedas (${f('conf_moedas')})\n`;
-  msg += `*Produtos:* ${f('produtos')}\n`;
+  let msg = `*RESPOSTAS FINAIS PROJETO CASH DOG*\n\n`;
+  msg += `*Autonomia Nomes:* ${f('autonomia_nomes')}\n`;
+  msg += `*Moeda Virtual:* ${f('nome_moeda')} (Regra: ${f('regra_sycous')})\n`;
+  msg += `*Fase 1 (Bronze):* ${f('conf_fase1_bronze')}\n`;
+  msg += `*Itens Manutenção:* ${chk('manutencao')}\n`;
+  msg += `*Derramamento:* ${f('derramamento')}\n`;
   msg += `*Validação Social:* ${f('valida_codigo')}\n`;
   msg += `*Acordo Fase 1 (R$ 4k):* ${f('conf_valor')}`;
 
