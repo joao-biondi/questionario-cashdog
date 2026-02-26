@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cash Dog | Alinhamento Técnico Final</title>
+  <title>Cash Dog | Ficha de Início - Fase 1</title>
   <style>
     :root {
       --primary: #00ff88;
@@ -23,7 +23,7 @@
       margin: 0;
     }
     .container {
-      max-width: 850px;
+      max-width: 800px;
       margin: auto;
       background: var(--card);
       padding: 40px;
@@ -33,45 +33,32 @@
     }
     .header { text-align: center; margin-bottom: 40px; }
     h1 {
-      font-size: 28px;
+      font-size: 26px;
       background: linear-gradient(to right, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 10px;
     }
-    h2 {
-      font-size: 16px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--secondary);
-      margin-top: 35px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    h2::after { content: ""; height: 1px; flex: 1; background: var(--border); }
-    .helper { font-size: 13px; color: var(--muted); margin-bottom: 15px; display: block; font-style: italic; }
-    label { display: block; margin-top: 20px; font-size: 14px; font-weight: 500; }
+    label { display: block; margin-top: 20px; font-size: 14px; font-weight: 600; color: var(--secondary); }
+    .helper { font-size: 12px; color: var(--muted); margin-bottom: 5px; display: block; }
     input, textarea, select {
       width: 100%; padding: 14px; margin-top: 8px; border-radius: 12px;
-      border: 1px solid var(--border); background: #0f172a; color: white;
-      box-sizing: border-box; transition: 0.2s;
+      border: 1px solid var(--border); background: #161e2d; color: white;
+      box-sizing: border-box; font-size: 14px;
     }
-    .checkbox-group {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 12px; margin-top: 10px;
-    }
-    .checkbox-item {
-      background: rgba(15, 23, 42, 0.5); border: 1px solid var(--border);
-      padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 12px;
-      cursor: pointer;
-    }
-    .checkbox-item input { width: auto; margin: 0; }
-    .btn-whats {
+    textarea { height: 100px; resize: vertical; }
+    .btn-submit {
       background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
       color: white; border: none; padding: 20px; width: 100%; border-radius: 16px;
-      font-size: 18px; font-weight: 700; cursor: pointer; margin-top: 40px;
+      font-size: 18px; font-weight: 800; cursor: pointer; margin-top: 40px;
+      transition: transform 0.2s;
+    }
+    .highlight-card {
+      background: rgba(0, 255, 136, 0.05);
+      border: 1px dashed var(--primary);
+      padding: 20px;
+      border-radius: 16px;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -79,73 +66,76 @@
 
 <div class="container">
   <div class="header">
-    <h1>Cash Dog: Acordo Técnico</h1>
-    <p>Sr., revise as definições finais para oficializarmos o início da Fase 1.</p>
+    <h1>🚀 Início da Fase 1: Matriz Bronze</h1>
+    <p>Sr., confirme os dados e o cronograma para iniciarmos a operação em 60 dias.</p>
   </div>
 
-  <h2>1) Estrutura e Nomenclatura</h2>
-  <span class="helper">O senhor solicitou autonomia para gerenciar os nomes das categorias.</span>
-  <label>Deseja um campo no painel Admin para renomear as categorias (ex: Bronze para Esmeralda)?</label>
-  <select id="autonomia_nomes">
-    <option value="Sim, desejo autonomia">Sim, quero poder mudar os nomes sozinho</option>
-    <option value="Não, pode deixar fixo">Não, os nomes do PDF são definitivos</option>
-  </select>
-
-  <h2>2) Moedas e Regras de Cashback</h2>
-  <span class="helper">Definindo a lógica da moeda "Sycous" e bônus de ativação.</span>
-  <label>Nome da moeda virtual (CashPet):</label>
-  <input type="text" id="nome_moeda" value="Sycous">
-  
-  <label>Confirma que compras feitas com "Sycous" NÃO geram bônus para a rede?</label>
-  <select id="regra_sycous">
-    <option value="Confirmado">Confirmado: Apenas Kit de Ativação gera cashback</option>
-    <option value="Ajustar">Não, quero que tudo gere bônus</option>
-  </select>
-
-  <h2>3) Fases e Manutenção Mensal</h2>
-  <span class="helper">Diferenciando suporte técnico de novos desenvolvimentos.</span>
-  <label>Entende que a Fase 1 (R$ 4k) entrega o projeto funcional apenas na Matriz Bronze?</label>
-  <select id="conf_fase1_bronze"><option>Sim, ciente</option><option>Não</option></select>
-
-  <label>O que o senhor espera do contrato de manutenção mensal?</label>
-  <div class="checkbox-group">
-    <label class="checkbox-item"><input type="checkbox" class="manutencao" value="Correcao Bugs"> Correção de falhas e erros</label>
-    <label class="checkbox-item"><input type="checkbox" class="manutencao" value="Ajuste de Bonus"> Alteração de valores de bônus</label>
-    <label class="checkbox-item"><input type="checkbox" class="manutencao" value="Suporte Loja"> Suporte na Loja Virtual</label>
+  <div class="highlight-card">
+    <label>Cronograma Fase 1 (P1):</label>
+    <span class="helper">O senhor confirmou que deseja a Matriz Bronze operacional em até 60 dias.</span>
+    <select id="prazo">
+      <option value="60 dias (Matriz Bronze Pronta)">Sim, Matriz Bronze funcional em 60 dias</option>
+      <option value="Outro">Outro prazo (especificar nos comentários)</option>
+    </select>
   </div>
 
-  <h2>4) Regras de Rede e Segurança</h2>
-  <label>Regra de Derramamento (Spillover):</label>
-  <select id="derramamento">
-    <option value="Sim, automático">Sim, preenchimento automático de "buracos"</option>
-    <option value="Manual">Não, posicionamento manual</option>
-  </select>
+  <h2>Conteúdo e Identidade</h2>
+  <label>Nome do Projeto/Loja:</label>
+  <input type="text" id="nome" placeholder="Ex: Cash Dog - Anjo Protetor">
 
-  <label>Validação de Adoção (Upgrade):</label>
-  <textarea id="valida_codigo" placeholder="Sr., como o senhor fará para conferir se o código do contrato de adoção é válido?"></textarea>
+  <label>Cores de Preferência:</label>
+  <input type="text" id="cores" placeholder="Ex: Azul e Vermelho conforme rascunho">
 
-  <h2>5) Aceite Final da Fase 1</h2>
-  <label>Confirma o início imediato pela Fase 1 no valor de R$ 4.000?</label>
-  <input type="text" id="conf_valor" value="Sim, de acordo com o planejado.">
+  <label>Design e Funcionalidades:</label>
+  <span class="helper">Descreva o carrossel de imagens ou outros elementos visuais desejados.</span>
+  <textarea id="funcionalidades" placeholder="Ex: Carrossel giratório de patrocinadores na parte inferior..."></textarea>
 
-  <button class="btn-whats" onclick="enviarWhatsApp()">ENVIAR DEFINIÇÕES PARA O JOÃO</button>
+  <label>História e Contexto:</label>
+  <span class="helper">Conte o propósito para evitarmos informações falsas no site.</span>
+  <textarea id="historia" placeholder="Fale sobre o projeto e a causa animal..."></textarea>
+
+  <h2>Dados de Contato</h2>
+  <label>Telefone para o Site:</label>
+  <input type="text" id="tel" placeholder="(00) 00000-0000">
+
+  <label>E-mail Oficial:</label>
+  <input type="email" id="email" placeholder="contato@site.com.br">
+
+  <label>Endereço Físico:</label>
+  <input type="text" id="endereco" placeholder="Endereço completo para o rodapé">
+
+  <h2>Produtos e Serviços</h2>
+  <label>Serviços Oferecidos:</label>
+  <textarea id="servicos" placeholder="Liste os serviços do projeto..."></textarea>
+
+  <label>Produtos (Kits de Ativação):</label>
+  <textarea id="produtos" placeholder="Liste os produtos da loja virtual..."></textarea>
+
+  <label>Depoimentos:</label>
+  <textarea id="depoimentos" placeholder="Caso queira frases de apoiadores no site..."></textarea>
+
+  <label>Link para Imagens e Logo:</label>
+  <input type="text" id="imagens" placeholder="Link do Drive com as fotos">
+
+  <button class="btn-submit" onclick="enviar()">CONFIRMAR E ENVIAR PARA GABRIEL</button>
 </div>
 
 <script>
-function enviarWhatsApp() {
-  const f = (id) => document.getElementById(id).value;
-  const chk = (cls) => Array.from(document.querySelectorAll(`.${cls}:checked`)).map(e => e.value).join(", ") || "Nenhum";
+function enviar() {
+  const f = (id) => document.getElementById(id).value || "Não informado";
+  
+  let msg = `*ACORDO FASE 1 - MATRIZ BRONZE*\n\n`;
+  msg += `*Prazo:* ${f('prazo')}\n`;
+  msg += `*Nome:* ${f('nome')}\n`;
+  msg += `*Cores/Design:* ${f('cores')} | ${f('funcionalidades')}\n`;
+  msg += `*História:* ${f('historia')}\n`;
+  msg += `*Contato:* ${f('tel')} | ${f('email')}\n`;
+  msg += `*Endereço:* ${f('endereco')}\n`;
+  msg += `*Serviços/Produtos:* ${f('servicos')} | ${f('produtos')}\n`;
+  msg += `*Depoimentos:* ${f('depoimentos')}\n`;
+  msg += `*Link Imagens:* ${f('imagens')}`;
 
-  let msg = `*RESPOSTAS FINAIS PROJETO CASH DOG*\n\n`;
-  msg += `*Autonomia Nomes:* ${f('autonomia_nomes')}\n`;
-  msg += `*Moeda Virtual:* ${f('nome_moeda')} (Regra: ${f('regra_sycous')})\n`;
-  msg += `*Fase 1 (Bronze):* ${f('conf_fase1_bronze')}\n`;
-  msg += `*Itens Manutenção:* ${chk('manutencao')}\n`;
-  msg += `*Derramamento:* ${f('derramamento')}\n`;
-  msg += `*Validação Social:* ${f('valida_codigo')}\n`;
-  msg += `*Acordo Fase 1 (R$ 4k):* ${f('conf_valor')}`;
-
-  const fone = "5541998731154";
+  const fone = "554197351368";
   window.open(`https://api.whatsapp.com/send?phone=${fone}&text=${encodeURIComponent(msg)}`, '_blank');
 }
 </script>
